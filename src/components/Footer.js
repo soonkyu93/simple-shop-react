@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterWrapper = styled.footer`
+	position: relative;
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
     align-items: center;
+	transform: translateY(-100%);
     width: 100%;
-    padding: 40px 0;
+	height: 150px;
 	border-top: 1px solid #D3D3D3;
     background-color: #FFF;
 `
