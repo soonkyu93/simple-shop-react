@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/study-simple-shop-react/static/css/main.e331ccbb.css",
+    "main.js": "/study-simple-shop-react/static/js/main.aec7fbdc.js",
+    "index.html": "/study-simple-shop-react/index.html",
+    "main.e331ccbb.css.map": "/study-simple-shop-react/static/css/main.e331ccbb.css.map",
+    "main.aec7fbdc.js.map": "/study-simple-shop-react/static/js/main.aec7fbdc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e331ccbb.css",
+    "static/js/main.aec7fbdc.js"
+  ]
+}
