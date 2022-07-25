@@ -13,6 +13,12 @@
 
 body {
   font-family: "Cafe24Oneprettynight", serif;
+  letter-spacing: -1px;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
 }
 
 ul,
