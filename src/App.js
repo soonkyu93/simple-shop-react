@@ -1,16 +1,16 @@
 import './App.css';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
-import Footer from './components/Footer/Footer';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Router from './Router/Router';
 
 function App() {
-  return (
-    <div className="wrapper">
-      <Header></Header>
-      <Main></Main>
-      <Footer></Footer>
-    </div>
-  );
+	return (
+		<div className="wrapper">
+			<Header></Header>
+			<Router></Router>
+			<Footer></Footer>
+		</div>
+	);
 }
 
 export default App;
