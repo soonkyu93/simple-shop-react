@@ -31,13 +31,30 @@ const CardTitle = styled.div`
 const CardWrapper = styled.section`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
 `;
 
+const LoadingImg = styled.img`
+    display: block;
+    margin: 0 auto 100px auto;
+`;
+
 function Main() {
-    const [product] = useState(productData);
+    const [product, setProduct] = useState([]);
+    const [loading, setLoading] = useState("false");
+
+    useEffect(() => {
+        setLoading(true);
+        axios.get("https://gist.githubusercontent.com/sypear/79455cda14403e74b99d66d5b0e8891b/raw/be7a559b737e5bdd4024d2eb083ec64e55b2b674/productData.json")
+        .then((res) => {
+            setLoading(false);
+            setProduct([...res.data]);
+        })
+        .catch(() => {
+            setLoading(false);
+            console.log("err");
+        })
+    }, []);
 
 	return (
 		<main>
