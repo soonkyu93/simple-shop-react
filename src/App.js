@@ -7,17 +7,17 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
 	width: 100%;
 	height: auto;
-	min-height: 150px;
+	min-height: 100%;
 	padding-bottom: 150px;
 `;
 
 function App() {
 	return (
 		<>
-			<div className="wrapper">
+			<Wrapper>
 				<Header></Header>
 				<Router></Router>
-			</div>
+			</Wrapper>
 			<Footer></Footer>
 		</>
 		
