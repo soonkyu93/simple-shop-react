@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Item = styled.div`
     width: 33.33333333%;
-    height: 450px;
+    height: 500px;
     margin-bottom: 100px;
     padding: 0 10px;
     border-radius: 5px;
@@ -11,7 +11,7 @@ const Item = styled.div`
 
 const ThumbnailWrapper = styled.div`
     width: 100%;
-    height: 350px;
+    height: 400px;
     margin-bottom: 10px;
     border-radius: 5px;
     overflow: hidden;
