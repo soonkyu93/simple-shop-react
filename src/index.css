@@ -26,6 +26,13 @@ body {
   user-select: none
 }
 
+button,
+input,
+textarea {
+  font-family: "Cafe24Oneprettynight", serif;
+  letter-spacing: -1px;
+}
+
 ul,
 ol,
 li {
