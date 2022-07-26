@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import Button from "../components/Button";
 
 const EventAlert = styled.div`
     display: flex;
@@ -22,9 +24,9 @@ const Content = styled.div`
 
 const ProductImgWrapper = styled.div`
     margin: 0 auto;
-    width: 50%;
+    width: 30%;
     height: 400px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 `;
 
 const ProductImg = styled.img`
@@ -46,16 +48,20 @@ const ProductPrice = styled.strong`
 `;
 
 const ProductDesc = styled.p`
+    margin-bottom: 40px;
     font-size: 23px;
 `;
 
-function Detail() {
+function Detail(props) {
     const [showAlert, setShowAlert] = useState(true);
+    let {id} = useParams();
+    const targetItem = props.product.find(item => item.id === +id);
 
     useEffect(() => {
+        console.log(props.product);
         let timer = setTimeout(() => {
             setShowAlert(false);
-        }, 2000);
+        }, 3000);
 
         return(() => {
             clearTimeout(timer);
@@ -65,18 +71,18 @@ function Detail() {
     return (
         <>
             {
-                showAlert === true? <EventAlert>진행 중인 이벤트 보러가기🔥</EventAlert> : null
+                showAlert === true? <EventAlert>🔥 5개 구매 시 1개 무료 증정 이벤트 진행 중! 🔥</EventAlert> : null
             }
-
             <Content>
                 <div>
                     <ProductImgWrapper>
-                        <ProductImg src={process.env.PUBLIC_URL + `/static/img/product/3.jpg`} alt="어쩌구" />
+                        <ProductImg src={process.env.PUBLIC_URL + `/static/img/product/${targetItem?.id + 1}.jpg`} alt="어쩌구" />
                     </ProductImgWrapper>
                     <div>
-                        <ProductTitle>설렘소주</ProductTitle>
-                        <ProductPrice>2900원</ProductPrice>
-                        <ProductDesc>경북 사과로 만든 전통주</ProductDesc>
+                        <ProductTitle>{targetItem?.title}</ProductTitle>
+                        <ProductPrice>{targetItem?.price}원</ProductPrice>
+                        <ProductDesc>{targetItem?.content}</ProductDesc>
+                        <Button>장바구니</Button>
                     </div>
                 </div>
             </Content>
