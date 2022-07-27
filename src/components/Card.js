@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import React from "react";
 import styled from "styled-components";
 
@@ -50,10 +51,12 @@ const Description = styled.p`
 `
 
 function Card(props) {
+    const navigate = useNavigate();
+
 	return (
         <Item>
-            <ThumbnailWrapper>
-                <Thumbnail i={props.i} src={process.env.PUBLIC_URL + `/static/img/product/${props.i + 1}.jpg`} alt={`${props.product.title}`}></Thumbnail>
+            <ThumbnailWrapper onClick={() => { navigate("/detail/" + props.product.id) }}>
+                <Thumbnail i={props.i} src={process.env.PUBLIC_URL + `/static/img/product/${props.product.id + 1}.jpg`} alt={`${props.product.title}`} />
             </ThumbnailWrapper>
             <ContentWrapper>
                 <Title>{props.product.title}</Title>
