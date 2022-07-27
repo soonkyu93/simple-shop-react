@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import axios from 'axios';
 import Card from '../components/Card.js';
-
-const Content = styled.div`
-	margin: 0 auto 0 auto;
-	width: 60%;
-    background-color: #FFF;
-`;
+import Content from "../components/Content.js";
 
 const MainImgWrapper = styled.div`
 	width: 100%;
@@ -46,7 +40,7 @@ function Main(props) {
                 <MainImg src={process.env.PUBLIC_URL + `/static/img/main/main1.png`} alt="메인 이미지" />
             </MainImgWrapper>
             
-            <Content>
+            <Content direction="left">
                 {
                     props.loading === true ? <LoadingImg src={process.env.PUBLIC_URL + `/static/icon/loading.gif`} alt="로딩 중" /> :
                     <>
@@ -58,7 +52,7 @@ function Main(props) {
                             {
                                 props.product.map((element, i) => {
                                     return (
-                                        <Card product={element} i={i} key={i}></Card>
+                                        <Card product={element} i={i} key={i} />
                                     );
                                 })
                             }
