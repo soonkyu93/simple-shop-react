@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../components/Button";
+import Content from "../components/Content.js";
+import { insertItem } from "../store/store";
 
 const EventAlert = styled.div`
     display: flex;
@@ -12,14 +15,6 @@ const EventAlert = styled.div`
     font-size: 20px;
     color: #FFF;
     background-color: #000;
-`;
-
-const Content = styled.div`
-	margin: 0 auto;
-    padding: 100px 0;
-	width: 60%;
-    background-color: #FFF;
-    text-align: center;
 `;
 
 const ProductImgWrapper = styled.div`
@@ -54,11 +49,13 @@ const ProductDesc = styled.p`
 
 function Detail(props) {
     const [showAlert, setShowAlert] = useState(true);
-    let {id} = useParams();
+
+    const {id} = useParams();
     const targetItem = props.product.find(item => item.id === +id);
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        console.log(props.product);
         let timer = setTimeout(() => {
             setShowAlert(false);
         }, 3000);
@@ -73,16 +70,16 @@ function Detail(props) {
             {
                 showAlert === true? <EventAlert>🔥 5개 구매 시 1개 무료 증정 이벤트 진행 중! 🔥</EventAlert> : null
             }
-            <Content>
+            <Content padding="100px 0" direction="center">
                 <div>
                     <ProductImgWrapper>
-                        <ProductImg src={process.env.PUBLIC_URL + `/static/img/product/${targetItem?.id + 1}.jpg`} alt="어쩌구" />
+                        <ProductImg src={process.env.PUBLIC_URL + `/static/img/product/${targetItem?.id + 1}.jpg`} alt={targetItem?.title} />
                     </ProductImgWrapper>
                     <div>
                         <ProductTitle>{targetItem?.title}</ProductTitle>
                         <ProductPrice>{targetItem?.price}원</ProductPrice>
                         <ProductDesc>{targetItem?.content}</ProductDesc>
-                        <Button>장바구니</Button>
+                        <Button onClick={() => {dispatch(insertItem(targetItem))}}>장바구니 담기</Button>
                     </div>
                 </div>
             </Content>
