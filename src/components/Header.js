@@ -38,7 +38,6 @@ function Header() {
                 <nav>
                     <MenuList>
                         <Menu onClick={() => { navigate("/") }}>메인</Menu>
-                        <Menu onClick={() => { navigate("/detail/0") }}>상세보기</Menu>
                         <Menu onClick={() => { navigate("/cart") }}>장바구니</Menu>
                     </MenuList>
                 </nav>
