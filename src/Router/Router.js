@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Main from '../pages/Main';
 import Detail from '../pages/Detail';
-import Cart from '../pages/Cart';
+import Cart from '../pages/Cart/Cart';
 import Error from '../pages/Error';
 
 function Router(props) {
